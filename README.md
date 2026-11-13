@@ -7,8 +7,7 @@ answers two questions about it. Correct answers earn Robux, which a parent pays 
 
 - **Bookshelf**: five books (Dinosaurs, Trains, Big Machines at Work, the Universe, Volcanoes),
   five chapters each, with a progress bar per book.
-- **Reading**: big, easy-to-read font (Atkinson Hyperlegible). Tap any word to hear it, or
-  "Read it to me" reads the whole chapter aloud and highlights each word as it is spoken (browser
+- **Reading**: big, easy-to-read font (Atkinson Hyperlegible). Tap any word to hear it (browser
   speech synthesis).
 - **Questions**: two multiple-choice questions per chapter, answers shuffled. He can open the story
   again while answering. A wrong answer gets a second try; after two wrong tries the answer is shown.

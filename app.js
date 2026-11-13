@@ -164,11 +164,9 @@ function showRead(book, chIndex) {
     <div class="story">${wordify(ch.text)}</div>
     <p class="hint">💡 Tricky word? Tap it to hear it.</p>
     <div class="actions">
-      <button class="btn secondary" id="readAloud">🔊 Read it to me</button>
       <button class="btn big" id="toQuiz">I'm done reading! ➜</button>
     </div>`;
   bindWords();
-  app.querySelector("#readAloud").onclick = () => readAloud(ch.text);
   app.querySelector("#toQuiz").onclick = () => startQuiz(book, chIndex);
 }
 
@@ -179,24 +177,6 @@ function bindWords() {
     const u = speak(el.dataset.say, 0.7);
     if (u) u.onend = () => el.classList.remove("speaking");
   }));
-}
-
-// Read the whole text aloud, highlighting each word as it is spoken.
-function readAloud(text) {
-  const words = [...app.querySelectorAll(".story .word")];
-  const plain = words.map(w => w.textContent).join(" ");
-  const starts = [];
-  let pos = 0;
-  words.forEach(w => { starts.push(pos); pos += w.textContent.length + 1; });
-  const u = speak(plain);
-  if (!u) return;
-  u.onboundary = e => {
-    if (e.name && e.name !== "word") return;
-    let i = starts.findIndex((s, k) => e.charIndex >= s && (k === starts.length - 1 || e.charIndex < starts[k + 1]));
-    words.forEach(w => w.classList.remove("speaking"));
-    if (i >= 0) words[i].classList.add("speaking");
-  };
-  u.onend = () => words.forEach(w => w.classList.remove("speaking"));
 }
 
 function startQuiz(book, chIndex) {
