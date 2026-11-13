@@ -10,4 +10,4 @@ components:
   - ../../k8s/platform/policies/allow-dns
 images:
   - name: localhost:5000/asq
-    newTag: none
+    newTag: git-832f6d0a67
