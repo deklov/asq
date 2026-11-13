@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: asq
+resources:
+  - namespace.yaml
+  - asq.yaml
+  - policy.yaml
+components:
+  - ../../k8s/platform/policies/default-deny
+  - ../../k8s/platform/policies/allow-dns
+images:
+  - name: localhost:5000/asq
+    newTag: none
